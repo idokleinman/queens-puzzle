@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSn-dn-dmC">
+                                <rect key="frame" x="278" y="546" width="44" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h53-cl-iqO"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1K-51-opa">
+                                <rect key="frame" x="20" y="40" width="560" height="446"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="s7I-1r-4FG">
+                                <rect key="frame" x="486" y="550" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gli-yb-BvC"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cells:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxm-5k-mxU">
+                                <rect key="frame" x="486" y="521" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3x3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iad-dL-nNt">
+                                <rect key="frame" x="550" y="521" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solution #m of n" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcq-a0-qLZ">
+                                <rect key="frame" x="20" y="527" width="124" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="m62-DQ-sLH">
+                                <rect key="frame" x="20" y="550" width="94" height="29"/>
+                                <connections>
+                                    <action selector="solutionStepperChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xoD-Tx-esI"/>
+                                </connections>
+                            </stepper>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tcq-a0-qLZ" secondAttribute="bottom" constant="25" id="0d6-ol-VPE"/>
+                            <constraint firstItem="JSn-dn-dmC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3O2-2u-dqs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="m62-DQ-sLH" secondAttribute="leading" id="5hD-74-528"/>
+                            <constraint firstItem="Iad-dL-nNt" firstAttribute="trailing" secondItem="s7I-1r-4FG" secondAttribute="trailing" id="7Pe-ns-IRy"/>
+                            <constraint firstItem="I1K-51-opa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8u5-Pe-doK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JSn-dn-dmC" secondAttribute="bottom" constant="20" id="DZV-Oz-aui"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tcq-a0-qLZ" secondAttribute="leading" id="H7h-u4-nci"/>
+                            <constraint firstItem="s7I-1r-4FG" firstAttribute="top" secondItem="dxm-5k-mxU" secondAttribute="bottom" constant="8" id="IxN-P0-eSW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tcq-a0-qLZ" secondAttribute="leading" id="JZk-Cb-LFT"/>
+                            <constraint firstItem="m62-DQ-sLH" firstAttribute="top" secondItem="tcq-a0-qLZ" secondAttribute="bottom" constant="3" id="LaU-ML-L45"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m62-DQ-sLH" secondAttribute="bottom" constant="21" id="OKQ-Xq-BSj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s7I-1r-4FG" secondAttribute="bottom" constant="21" id="QvS-dA-KaE"/>
+                            <constraint firstItem="I1K-51-opa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Szb-P9-qOt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I1K-51-opa" secondAttribute="trailing" id="Z8k-zL-pBp"/>
+                            <constraint firstItem="s7I-1r-4FG" firstAttribute="top" secondItem="Iad-dL-nNt" secondAttribute="bottom" constant="8" id="k03-g0-lGi"/>
+                            <constraint firstItem="JSn-dn-dmC" firstAttribute="top" secondItem="I1K-51-opa" secondAttribute="bottom" constant="60" id="qLu-hz-YjN"/>
+                            <constraint firstItem="dxm-5k-mxU" firstAttribute="leading" secondItem="s7I-1r-4FG" secondAttribute="leading" id="tlU-x0-oZZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s7I-1r-4FG" secondAttribute="trailing" id="xAl-TY-z98"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="H7h-u4-nci"/>
+                                <exclude reference="0d6-ol-VPE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="I1K-51-opa" id="vtQ-Sz-1rA"/>
+                        <outlet property="numCellsLabel" destination="Iad-dL-nNt" id="Nh9-ft-55b"/>
+                        <outlet property="numCellsStepper" destination="s7I-1r-4FG" id="ApD-3r-Dzi"/>
+                        <outlet property="solutionLabel" destination="tcq-a0-qLZ" id="q5Q-V6-X2w"/>
+                        <outlet property="solutionStepper" destination="m62-DQ-sLH" id="asf-sm-S7w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="265"/>
+        </scene>
+    </scenes>
+</document>
