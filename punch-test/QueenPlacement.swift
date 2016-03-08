@@ -15,12 +15,12 @@ public typealias Board = Array<Array<Cell>>
 }
 
 class QueenPlacement: NSObject {
-    var boardView : TTTBoardView?
+//    var boardView : TTTBoardView?
     var boardSize : Int = 0
     var solutions : Set<Solution>?
     weak var delegate : QueenPlacementDelegate? 
-    private var startCondX : Int = 0
-    private var startCondY : Int = 0
+//    private var startCondX : Int = 0
+//    private var startCondY : Int = 0
 
     
     func start() {
@@ -31,12 +31,13 @@ class QueenPlacement: NSObject {
         }
       
         self.solutions = Set<Solution>()
-        var done = false
-        self.startCondX = 0; self.startCondY = 0;
+//        var done = false
+//        self.startCondX = 0; self.startCondY = 0;
 //        var internalSolutions = Array<Solution>()
         
         // add starting conditions to collect solutions
         
+        /*
         while (!done) {
             let solution = Solution(boardSize: self.boardSize)
             let board = solution.board
@@ -58,8 +59,91 @@ class QueenPlacement: NSObject {
                     self.delegate!.solutionsFound(self.solutions!.count)
                 }
             }
-            
         }
+        */
+        
+        let solutions = queens(self.boardSize)
+//        print("found "+String(solutions.count)+" solutions: ")
+        solutions.forEach {
+//            print(drawTable($0))
+            self.solutions!.insert(convertIntArrToSolution($0))
+        }
+        self.delegate!.solutionsFound(self.solutions!.count)
+    }
+    
+    func convertIntArrToSolution(solIntArr : [Int]) -> Solution {
+        let sol = Solution(boardSize: solIntArr.count)
+        for i in 0...solIntArr.count-1 {
+            let j = solIntArr[i]-1;
+            sol.board[i][j].state = .Queen
+        }
+        return sol
+    }
+    
+    func queens(n: Int) -> [[Int]] {
+        
+        guard n > 3 else {
+            return [[Int]]()
+        }
+        
+        func placeQueens(k: Int) -> [[Int]] {
+            
+            guard k > 0 else {
+                return [[-1]] //stupid hack to let the app go to the for-loop in the * marked place
+            }
+            var res = [[Int]]()
+            
+            for var q in placeQueens(k - 1) { //* marked place
+                
+                if let first = q.first where first == -1 { //this is for removing the hacky -1
+                    q.removeAll()
+                }
+                
+                for column in 1...n {
+                    
+                    if isSafe(column, queens: q) {
+                        var solution = q
+                        solution.append(column)
+                        res.append(solution)
+                    }
+                }
+            }
+            return res
+        }
+        return placeQueens(n)
+    }
+    
+    func isSafe(column: Int, queens: [Int]) -> Bool {
+        
+        for (index, q) in queens.enumerate() {
+            let dy = (index + 1) - (queens.count + 1)
+            let dx = q - column
+            let isDiagonal = dy * dy == dx * dx
+            
+            if q == column || isDiagonal {
+                return false
+            }
+        }
+        return true
+    }
+    
+    /*
+    func drawTable(table: [Int]) -> String {
+        var res = ""
+        
+        table.forEach {
+            
+            for column in 1...table.count {
+                
+                if $0 == column {
+                    res += "X "
+                } else {
+                    res += ". "
+                }
+            }
+            res += "\n"
+        }
+        return res
     }
     
     func advanceStartConditionsAndCheckIfDone() -> Bool {
@@ -163,7 +247,7 @@ class QueenPlacement: NSObject {
         return true
         
     }
-    
+    */
       
     // singleton!
     static let sharedInstance = QueenPlacement()

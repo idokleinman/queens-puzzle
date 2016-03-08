@@ -43,7 +43,7 @@ public class Solution: NSObject  {
             }
 //            self.board.append(row)
         }
-        print("hash for board: "+String(hash))
+//        print("hash for board: "+String(hash))
         return hash
 
     }
