@@ -8,12 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-//@protocol QueenPlacementDelegate;
-
-
-
-@interface ViewController : UIViewController// <QueenPlacementDelegate>
-
+@interface ViewController : UIViewController
 
 @end
 

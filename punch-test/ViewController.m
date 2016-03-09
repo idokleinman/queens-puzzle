@@ -54,7 +54,6 @@
     }
     NSArray<Solution *> *solutionArray = [[QueenPlacement sharedInstance].solutions allObjects];
     Solution *solution = solutionArray[index-1];
-    NSLog(@"solution hash: %ld",solution.hash);
     
     self.solutionLabel.text = [NSString stringWithFormat:@"Solution #%ld of %ld",index,self.solutionsFound];
     self.boardView = [[TTTBoardView alloc] initWithFrame:self.gameView.bounds andBoard:solution.board];

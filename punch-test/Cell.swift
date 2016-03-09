@@ -14,16 +14,12 @@ import Foundation
 }
 
 
-@objc public class Cell: NSObject, NSCopying {
+@objc public class Cell: NSObject {
     
     public var state : CellState
     init(state : CellState) {
         self.state = state
     }
-    
-    public func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = Cell(state: self.state)
-        return copy
-    }
+
 
 }

@@ -20,13 +20,6 @@
 
 @implementation TTTCellView
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -47,8 +40,6 @@
     [self addSubview:self.imageView];
     [self bringSubviewToFront:self.imageView];
     
-//    [self.cell addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
-    
 }
 
 -(void)setCell:(Cell *)cell
@@ -66,16 +57,7 @@
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-//    NSLog(@"cell: %@",object);
-    
-    [self updateDrawState];
-}
 
--(void)dealloc {
-//    [self.cell removeObserver:self forKeyPath:@"state"];
-}
 
 
 @end

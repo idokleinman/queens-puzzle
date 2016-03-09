@@ -43,7 +43,7 @@
             for (NSUInteger j=0; j<cellNum; j++)
             {
                 TTTCellView *cellView = [[TTTCellView alloc] initWithFrame:CGRectMake(i*cellDim, j*cellDim, cellDim, cellDim)];
-                cellView.cell = [board[i][j] copy];
+                cellView.cell = board[i][j];
                 [self addSubview:cellView];
                 [self.internalCells[i] addObject:cellView];
             }
@@ -53,22 +53,10 @@
     
 }
 
-//-(instancetype)initWithFrame:(CGRect)frame
-//{
-//    
-//}
-
 -(NSArray *)cellViews
 {
     return [self.internalCells copy];
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 @end
